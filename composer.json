@@ -10,7 +10,7 @@
     "league/oauth2-github": "^2.0",
     "php-http/guzzle6-adapter": "^1.1"
   },
-  "description": "",
+  "description": "Allows Single Sign On into WordPress through Github OAuth app with restriction by organization and team.",
   "autoload": {
     "psr-4": {
       "Innocode\\GithubOAuth\\": "src/"
