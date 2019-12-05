@@ -105,7 +105,7 @@ final class Plugin
 	public function get_scope() : array
 	{
 		return apply_filters(
-			'innocode_github_oauth_scope', [ 'user', 'read:org' ]
+			'innocode_github_oauth_scope', [ 'read:user', 'user:email', 'read:org' ]
 		);
 	}
 
