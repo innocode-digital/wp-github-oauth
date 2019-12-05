@@ -68,7 +68,7 @@ It's possible to change [Github OAuth scope](https://developer.github.com/apps/b
 
 ````
 add_filter( 'innocode_github_oauth_scope', function ( array $scope ) {
-    return $scope; // Default is array containing 'read:user', 'user:email' and 'read:org'.
+    return $scope; // Default is array containing 'user:email' and 'read:org'.
 } );
 ````
 
