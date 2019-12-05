@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Github OAuth
  * Description: Allows Single Sign On into WordPress through Github OAuth app with restriction by organization and team.
- * Version: 1.1.0
+ * Version: 1.2.0
  * Author: Innocode
  * Author URI: https://innocode.com
  * Tested up to: 5.3.0
