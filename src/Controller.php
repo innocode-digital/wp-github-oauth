@@ -25,6 +25,11 @@ final class Controller
 	 */
 	public function auth( Plugin $plugin )
 	{
+		if ( is_user_logged_in() ) {
+			$this->done();
+			exit;
+		}
+
 		$router = $plugin->get_router();
 		$provider = $plugin->get_provider();
 		$session = $plugin->get_session();

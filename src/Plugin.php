@@ -122,14 +122,18 @@ final class Plugin
 	}
 
 	/**
-	 * @param bool    $allow
-	 * @param WP_User $user
+	 * @param bool        $allow
+	 * @param WP_User|int $user
 	 *
 	 * @return bool
 	 */
-	public function allow_password_reset( bool $allow, WP_User $user ) : bool
+	public function allow_password_reset( bool $allow, $user ) : bool
 	{
-		return ! $this->is_identified( $user->ID ) ? $allow : false;
+		if ( $user instanceof WP_User ) {
+			$user = $user->ID;
+		}
+
+		return ! $this->is_identified( $user ) ? $allow : false;
 	}
 
 	/**
