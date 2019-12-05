@@ -55,6 +55,7 @@ final class Plugin
 		add_action( 'template_redirect', [ $this->get_router(), 'handle_request' ] );
 		add_filter( 'allow_password_reset', [ $this, 'allow_password_reset' ], 10, 2 );
 		add_filter( 'show_password_fields', [ $this, 'allow_password_reset' ], 10, 2 );
+		add_action( 'set_auth_cookie', [ $this, 'auth' ], 10, 4 );
 	}
 
 	/**
@@ -142,6 +143,17 @@ final class Plugin
 			'oauth_identity_provider',
 			true
 		) === static::IDENTITY_PROVIDER;
+	}
+
+	/**
+	 * @param string $auth_cookie
+	 * @param int    $expire
+	 * @param int    $expiration
+	 * @param int    $user_id
+	 */
+	public function auth( string $auth_cookie, int $expire, int $expiration, int $user_id )
+	{
+		delete_user_meta( $user_id, 'oauth_identity_provider' );
 	}
 
 	private function _init_provider()

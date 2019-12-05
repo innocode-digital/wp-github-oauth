@@ -297,8 +297,8 @@ final class Controller
 			return;
 		}
 
-		update_user_meta( $user_id, 'oauth_identity_provider', $plugin::IDENTITY_PROVIDER );
 		wp_set_current_user( $user->ID, $user->user_login );
 		wp_set_auth_cookie( $user->ID, true );
+		update_user_meta( $user_id, 'oauth_identity_provider', $plugin::IDENTITY_PROVIDER );
 	}
 }

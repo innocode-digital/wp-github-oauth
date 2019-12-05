@@ -81,3 +81,9 @@ add_filter( 'innocode_github_oauth_endpoint_mask', function ( $mask, $endpoint )
     return $mask; // Default is EP_ROOT constant.
 }, 10, 2 );
 ````
+
+To check if user used Github OAuth:
+
+````
+innocode_github_oauth()->is_identified( $user_id );
+````
