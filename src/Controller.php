@@ -221,8 +221,12 @@ final class Controller
 	 * @param string $message
 	 * @param int    $response
 	 */
-	public function error( Plugin $plugin, string $message, int $response = WP_Http::BAD_REQUEST )
+	public function error( Plugin $plugin, string $message = '', int $response = WP_Http::BAD_REQUEST )
 	{
+		if ( ! $message && isset( $_GET['error_description'] ) ) {
+			$message = (string) wp_unslash( $_GET['error_description'] );
+		}
+
 		wp_die(
 			'<h1>' . __( 'Something went wrong.' ) . '</h1>' . $message,
 			'',

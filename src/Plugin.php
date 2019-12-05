@@ -17,6 +17,7 @@ final class Plugin
 		'', // index
 		'auth',
 		'verify',
+		'error',
 	];
 
 	/**

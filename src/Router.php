@@ -86,6 +86,15 @@ final class Router
 
 		$routes = $this->get_routes();
 
+		// IMPORTANT: WordPress unset $_GET['error'], use $_REQUEST['error'].
+		if ( isset( $_REQUEST['error'] ) ) {
+			if ( isset( $_REQUEST['error'] ) ) {
+				$routes['error']();
+			}
+
+			exit;
+		}
+
 		if ( isset( $routes[ $uri ] ) ) {
 			$routes[ $uri ]();
 
